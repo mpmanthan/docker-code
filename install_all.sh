@@ -6,7 +6,8 @@ sudo systemctl start apache2
 sudo systemctl start docker
 sudo systemctl enable docker
 
-sudo echo 'Hello Welcome to My Web Page' > index.html
+sudo mkdir /full
+sudo echo 'Hello Welcome to My Web Page' > /full/index.html
 
 sudo cat > dockerfile <<EOF
 FROM centos:7
@@ -17,8 +18,8 @@ CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
 EXPOSE 80
 EOF
 
-sudo docker build -t solo:v1 .
-sudo docker run -d -p 80:8080 -name xyz solo:v1
+sudo docker build -t solo:v1 /full/.
+sudo docker run -d -p 80:8080 --name xyz solo:v1
 
 
 
