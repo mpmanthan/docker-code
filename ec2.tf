@@ -48,7 +48,7 @@ resource "tls_private_key" "rsa" {
   rsa_bits  = 4096
 }
 resource "local_file" "dockerkey" {
-  content  = tls_private_key.rsa.private_key.pem
+  content  = tls_private_key.rsa.private_key_pem
   filename = "docker_key"
 }
 
