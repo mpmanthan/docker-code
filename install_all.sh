@@ -9,7 +9,7 @@ sudo systemctl enable docker
 sudo mkdir /full
 sudo echo 'Hello Welcome to My Web Page' > /full/index.html
 
-sudo cat > dockerfile <<EOF
+sudo cat > /full/dockerfile <<EOF
 FROM centos:7
 WORKDIR app
 RUN yum install httpd -y
