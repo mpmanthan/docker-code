@@ -30,7 +30,7 @@ resource "aws_instance" "webserver" {
   ami           = "ami-03f4878755434977f"
   availability_zone = "ap-south-1a"
   instance_type = "t2.micro"
-  key_name = "docker-key"
+  key_name = aws_key_pair.docker.docker-key
   user_data = "${file("install_all.sh")}"
   security_groups = ["${aws_security_group.webserver_access.name}"]
   tags = {
